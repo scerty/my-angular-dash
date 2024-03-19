@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Open+Sans&display=swap');
+
+
+
+
+
+
+
+ .custom-font {
+   font-family: 'Lilita One';
+ }
+
+
+
+
+
+
+.cstnv{
+  //  background-color: #34D186;
+    background-color: #2DCC00;
+    color: #FFF;
+    padding-top: 0px;
+
+}
+
+.avtrcs{
+   margin-top: 0px;
+ margin-right: 8px;
+}
+
+
+.mycsp{
+    margin-top: 110px;
+ 
+ }
+
+ .myhover{
+    border-color: rgb(66 32 6);;
+ }
+
+
+
+ .logo{
+    height: 50px;
+ }
+
+
+
+ /* nav.component.scss */
+.block {
+   /* Add any other styles you want for the block container */
+ }
+ 
+ .block button {
+   /* Add styles for the button, such as padding and border */
+ }
+ 
+ 
+ 
+ /* sec.css */
+ .options {
+   /* Add any other styles for the options container */
+ }
+ 
+ .options div {
+   /* Add styles for the individual options */
+ }
+ 
+ 
+ 
+ .avtrcs {
+   /* Add styles for the avatar container */
+   background-color: #e5e7eb; /* Change to your desired avatar background color */
+ }
+ 

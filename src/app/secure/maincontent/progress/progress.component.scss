@@ -1,0 +1,203 @@
+:host {
+  margin-top: 20px;
+  user-select: none;
+  display: grid;
+  grid-template-rows: 8px 1fr;
+  grid-row-gap: 100px;
+  justify-content: center;
+  grid-template-columns: min-content;
+.myprgs{
+
+}      transition: all 0.5s 0.5s cubic-bezier(0.45, 0, 0.55, 1);
+
+  .step-progress {
+    margin-top: 30px;
+    padding: 15px 15px 20px 0;
+   // box-shadow: 0 2px 2px rgba(129, 129, 129, 0.126);
+    border-radius: 15px;
+    grid-row: 2/ -1;
+    grid-column: 1 / -1;
+    align-self: center;
+    background-color: #f1f1f100;
+  }
+
+  .step-content {
+
+    margin-top: 10px;
+    position: relative;
+    align-self: start;
+    grid-row: 2 / 3;
+    grid-column: 1 / -1;
+    //box-shadow:  0px 0px 2px 1px rgba(129, 129, 129, 0.143);
+    border-radius: 15px;
+    height: 60vh;
+   overflow-y: auto;//direction: rtl;
+  // display: flex;
+  //flex-direction: row-reverse;
+  
+  }
+
+  .step-content::-webkit-scrollbar {
+   // width: 6px; /* عرض شريط التمرير */
+    //opacity: 0; /* جعل شريط التمرير شفاف عند عدم وجود الماوس */
+    transition: opacity 0.3s ease;
+   // direction: rtl;
+  
+  }
+  
+  .step-content:hover::-webkit-scrollbar {
+    opacity: 1; /* جعل شريط التمرير ظاهر عند تحويش الماوس */
+  }
+
+  .step-content::-webkit-scrollbar {
+    width: 4px; /* عرض شريط التمرير */
+    background-color: #f1f1f1; 
+    left: 0px;/* لون خلفية شريط التمرير */
+    direction: rtl;
+  }
+  
+  .step-content::-webkit-scrollbar-thumb {
+    background-color: #bbb; /* لون شريط التمرير نفسه */
+    border-radius: 10px; /* تدوير الأطراف لشريط التمرير */
+  }
+  
+  /* جعل شريط التمرير ظاهر عند تحويش الماوس */
+  .step-content:hover::-webkit-scrollbar-thumb {
+    background-color: rgb(107, 114, 128);
+  }
+
+
+
+}
+
+.container {
+  display: inline-flex;
+  padding: 30px;
+  position: relative;
+
+
+  svg#checkbox {
+    width: 25px;
+    height: 25px;
+    stroke: rgb(242, 169, 24);
+    stroke-width: 6;
+
+    .circle {
+      stroke-dasharray: 320;
+      stroke-dashoffset: 320;
+      fill: #d2d2d2;
+      transition: stroke-dashoffset 0.5s,
+        fill 0.5s 0.3s cubic-bezier(0.45, 0, 0.55, 1);
+    }
+
+    .check {
+      stroke-dasharray: 70;
+      stroke-dashoffset: 70;
+      stroke: #fff;
+      fill: none;
+      transition: all 0.5s 0.5s cubic-bezier(0.45, 0, 0.55, 1);
+    }
+  }
+}
+
+.check-box {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  .info {
+    position: absolute;
+    bottom: -47px;
+    left: -17px;
+    display: grid;
+    grid-template-columns: max-content;
+    span.progress-info {
+      text-transform: capitalize;
+    font-size: 7px;
+    display: inline-block;
+    margin-left: 0px;
+    padding: 0px 6px;
+    transform: translateY(6px);
+    /* font-weight: 500; */
+    color: currentColor;
+    background: #eee;
+    border-radius: 20px;
+    transition: background-color 0.1s ease-in-out;
+    }
+    span.progress-info.in-progress {
+      background-color:     rgb(107 114 128)
+      ;
+      color: #fff;
+    }
+
+    span.progress-info.completed {
+      background-color: rgb(242, 169, 24);
+      color: #fff;
+    }
+
+    span.step {
+      margin-left: 10px;
+      text-transform: uppercase;
+      font-weight: normal;
+      letter-spacing: 0.5px;
+      font-size: 9px;
+      color: #777;
+    }
+  }
+
+}
+
+.progress-line {
+  width: 68px;
+  margin: 0 10px;
+  height: 3px;
+  overflow: hidden;
+  display: inline-block;
+  background: #d2d2d2;
+  border-radius: 10px;
+
+  .progress-percent {
+    height: inherit;
+    width: 0%;
+    transition: all 0.5s 0.5s cubic-bezier(0.45, 0, 0.55, 1);
+  }
+}
+
+.progress-line.active {
+  .progress-percent {
+    background:    rgb(107 114 128)
+    ;
+    width: 50%;
+  }
+}
+
+.progress-line.complete {
+  .progress-percent {
+    width: 100%;
+    background: rgb(242, 169, 24);
+  }
+}
+
+.check-box.active {
+  svg#checkbox {
+    .circle {
+      fill:    rgb(107 114 128)
+      ;
+    }
+  }
+}
+.check-box.complete {
+  svg#checkbox {
+    .circle {
+      stroke-dashoffset: 0;
+      fill: rgb(242, 169, 24);
+    }
+
+    .check {
+      stroke-dashoffset: 0;
+    }
+  }
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -1,0 +1,72 @@
+
+<div class="step-container">
+<div class="step-progress">
+  <div class="container" #container>
+    <ng-container *ngFor="let item of itemProgressList; index as i">
+      <div
+        class="check-box"
+        [ngClass]="{
+          complete: item.status === 'completed',
+          active: item.status === 'in progress'
+        }"
+      >
+        <svg id="checkbox" viewBox="0 0 100 100">
+          <circle class="circle" cx="50.5" cy="49" r="45" />
+          <polyline class="check" points="28.5,51.9 41.9,65.3 72.5,32.8 " />
+        </svg>
+        <div
+          [ngClass]="{
+            complete: item.status === 'completed',
+            active: item.status === 'in progress'
+          }"
+          class="progress-line"
+          *ngIf="i !== itemLength - 1"
+        >
+          <div class="progress-percent"></div>
+        </div>
+        <div class="info">
+          <span class="step">step {{ i + 1 }}</span>
+          <!--
+          <span
+            class="progress-info"
+            [ngClass]="{
+              'completed': item.status === 'completed',
+              'in-progress': item.status === 'in progress'
+            }"
+            >{{ item.status }}</span
+          > -->
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+<div class="step-content">
+  <ng-content select="app-progress-step"></ng-content>
+</div>
+<div  class="  pt-8          action-controler">
+
+
+
+  <div class="  rounded-md bg-neutral-200 dark:bg-neutral-600 mx-3 h-4 mb-3 ">
+    <div
+    
+      class=" rounded-md bg-amber-500 p-0.5 text-center text-xs  h-4 font-medium leading-none text-primary-100 myprgs"
+      [style.width]="(100 / itemLength) * (corentStep - 1) + '%'">
+      
+    </div>
+  </div>
+  
+  <button *ngIf="corentStep > 1"    (click)="prev()" type="button" class="focus:outline-none text-gray-700 bg-gray-300 hover:bg-gray-400 focus:ring-1 focus:ring-gray-300 font-medium rounded-lg text-lg px-16 py-2.5 mr-4 ml-4 mb-2 dark:bg-green-600 dark:hover:bg-green-400 dark:focus:ring-green-800">Previous</button>
+
+
+
+
+  <button  *ngIf="corentStep === 1"   (click)="next()" type="button" class="focus:outline-none text-green-700 bg-green-300 hover:bg-green-400 focus:ring-1 focus:ring-green-300 font-medium rounded-lg text-lg px-44 py-2.5 mr-2 ml-4 mb-2 dark:bg-green-600 dark:hover:bg-green-400 dark:focus:ring-green-800">Next</button>
+
+  <button  *ngIf="corentStep > 1"  (click)="next()" type="button" class="focus:outline-none text-ls-700 
+    
+    bg-green-300 
+    
+    hover:bg-green-400 focus:ring-1 focus:ring-green-300 font-medium rounded-lg text-lg px-20 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-400 dark:focus:ring-green-800">Next</button>
+</div>
+</div>
